@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-gold: #D4AF37;
+  --color-brand-terra: #8B4513;
+  --color-brand-blue: #00D6FF;
+  --color-brand-milk: rgba(255,255,255,0.6);
+
+  --font-sans: "Inter", sans-serif;
+  --font-serif: "Playfair Display", serif;
+}
+
+@layer base {
+  :root {
+    --background: #FAFAFA;
+    --secondary: #F4EFE6;
+    --foreground: #101010;
+  }
+  
+  .dark {
+    --background: #050505;
+    --secondary: #111111;
+    --foreground: #FFFFFF;
+  }
+  
+  html, body {
+    @apply bg-(--background) text-(--foreground) font-sans antialiased;
+    overflow-x: hidden;
+    transition: background-color 0.8s ease;
+  }
+}
+
+/* Hide scrollbar for a cleaner look */
+::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+.animate-scanline {
+  animation: scanline 2s linear infinite;
+}
